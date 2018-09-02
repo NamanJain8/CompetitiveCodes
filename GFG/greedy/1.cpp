@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+#define ull unsigned long long int
+#define uint unsigned int
+#define read(n) scanf("%d",&n)
+#define readll(n) scanf("%lld",&n)
+#define read2(n,m) scanf("%d%d",&n,&m)
+#define read3(n,m,l) scanf("%d%d%d",&n,&m,&l)
+#define fr(i,n)     for(int i=0;i<n;i++)
+#define frr(i,a,b)   for(int i=a;i<b;i++)
+#define rf(i,n)     for(int i=n-1;i>=0;i--)
+#define init(mem,v) memset(mem,v,sizeof(mem))
+#define vc(r) vector< r >
+#define mk(a,b) make_pair(a,b)
+#define pb push_back
+#define all(v) (v).begin(),(v).end()
+#define tr(v,it) for(typeof((v).begin()) it = (v).begin(); it != (v).end() ; it++)
+#define vpresent(v,x) ((v).find(x) != (v).end())
+#define present(v,x) (find(all(v),x) != (v).end())
+typedef pair<int,int> pii;
+typedef pair<pii,pii> ppi;
+#define INF 2000000000
+
+int main()
+{
+	int t;	cin>>t;
+	while(t--){
+		int n;	cin>>n;
+		int s[n];	int e[n];
+		fr(i,n)	cin>>s[i];
+		fr(i,n)	cin>>e[i];
+		vector<pair<int,int>> v;
+		fr(i,n)	v.pb(mk(e[i],s[i]));
+		sort(v.begin(),v.end());
+		int t=0;
+		int cnt=0;
+		vector<pair<int,int>>::iterator it;
+		for(it = v.begin();it!=v.end();it++){
+			pair<int,int> p = *it;
+			if(p.second > t){
+				cnt++;	t=p.first;
+			}
+		}
+		cout<<cnt<<endl;
+	}
+}
+
+
